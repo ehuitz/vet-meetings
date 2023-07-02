@@ -33,19 +33,19 @@
                             <tr>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
-                                        @click="updateOrdering('employee_id')">
+                                        @click="updateOrdering('schedule_id')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'schedule_id' }">
                                             Employee ID
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'schedule_id',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'schedule_id',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'schedule_id',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'schedule_id',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -55,59 +55,29 @@
                                         class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Employee</span>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    <div class="flex flex-row items-center justify-between cursor-pointer"
-                                        @click="updateOrdering('start_date')">
-                                        <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
-                                            Start Date
-                                        </div>
-                                        <div class="select-none">
-                                            <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
-                                            }">&uarr;</span>
-                                            <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
-                                            }">&darr;</span>
-                                        </div>
-                                    </div>
+                                    <span
+                                        class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Start Date</span>
                                 </th>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
-                                    <div class="flex flex-row items-center justify-between cursor-pointer"
-                                        @click="updateOrdering('end_date')">
-                                        <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
-                                            End Date
-                                        </div>
-                                        <div class="select-none">
-                                            <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
-                                            }">&uarr;</span>
-                                            <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
-                                            }">&darr;</span>
-                                        </div>
-                                    </div>
+                                    <span
+                                        class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">End Date</span>
                                 </th>
 
                                 <th class="px-6 py-3 bg-gray-50 text-left">
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('start_time')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'start_time' }">
                                             Start Time
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'start_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'start_time',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'start_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'start_time',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -117,17 +87,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('end_time')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'end_time' }">
                                             End Time
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'end_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'end_time',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'end_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'end_time',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -179,8 +149,8 @@ export default {
         const { busies, getBusies } = useBusies();
         const isLoading = ref(true)
         const search_id = ref('')
-        const orderColumn = ref('employee_id')
-        const orderDirection = ref('desc')
+        const orderColumn = ref('')
+        const orderDirection = ref('')
         const { veterinarians, getVeterinarians } = useVeterinarians()
 
         onMounted(async () => {

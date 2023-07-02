@@ -16,9 +16,9 @@ class BusyController extends Controller
      */
     public function index()
     {
-        $orderColumn = request('order_column', 'schedule_id');
-        if (!in_array($orderColumn, ['id', 'schedule_id', 'start_time', 'end_time'])) {
-            $orderColumn = 'schedule_id';
+        $orderColumn = request('order_column');
+        if (!in_array($orderColumn, ['schedule_id', 'start_time', 'end_time'])) {
+            $orderColumn = 'id' ;
         }
 
         $orderDirection = request('order_direction', 'desc');

@@ -7,7 +7,7 @@ export default function useBusies() {
     const getBusies = async (
         page = 1,
         search_id = '',
-        order_column = 'created_at',
+        order_column = '',
         order_direction = 'desc'
     ) => {
              axios.get('/api/busies?page=' + page +

@@ -15,7 +15,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $orderColumn = request('order_column', 'veterinarian_id');
+        $orderColumn = request('order_column');
         if (!in_array($orderColumn, ['id', 'veterinarian_id', 'start_date', 'end_date', 'start_time', 'end_time'])) {
             $orderColumn = 'veterinarian_id';
         }

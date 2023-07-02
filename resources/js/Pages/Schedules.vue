@@ -35,17 +35,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('employee_id')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'employee_id' }">
                                             Employee ID
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'employee_id',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'employee_id',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'employee_id',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'employee_id',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -58,17 +58,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('start_date')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'start_date' }">
                                             Start Date
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'start_date',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'start_date',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'start_date',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'start_date',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -77,17 +77,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('end_date')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'end_date' }">
                                             End Date
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'end_date',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'end_date',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'end_date',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'end_date',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -97,17 +97,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('start_time')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'start_time' }">
                                             Start Time
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'start_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'start_time',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'start_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'start_time',
                                             }">&darr;</span>
                                         </div>
                                     </div>
@@ -117,17 +117,17 @@
                                     <div class="flex flex-row items-center justify-between cursor-pointer"
                                         @click="updateOrdering('end_time')">
                                         <div class="text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider"
-                                            :class="{ 'font-bold text-blue-600': orderColumn === 'id' }">
+                                            :class="{ 'font-bold text-blue-600': orderColumn === 'end_time' }">
                                             End Time
                                         </div>
                                         <div class="select-none">
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'asc' && orderColumn === 'end_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'asc' && orderColumn === 'end_time',
                                             }">&uarr;</span>
                                             <span :class="{
-                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'id',
-                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'id',
+                                                'text-blue-600': orderDirection === 'desc' && orderColumn === 'end_time',
+                                                'hidden': orderDirection !== '' && orderDirection !== 'desc' && orderColumn === 'end_time',
                                             }">&darr;</span>
                                         </div>
                                     </div>

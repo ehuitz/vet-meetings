@@ -17,7 +17,7 @@ class VeterinarianController extends Controller
      */
     public function index()
     {
-        $orderColumn = request('order_column', 'employee_id');
+        $orderColumn = request('order_column');
         if (!in_array($orderColumn, ['id', 'employee_id'])) {
             $orderColumn = 'employee_id';
         }
