@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\VeterinarianController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\BusyController;
+use App\Http\Controllers\Api\SyncController;
 
 
 /*
@@ -25,6 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('veterinarians', VeterinarianController::class);
 Route::apiResource('schedules', ScheduleController::class);
 Route::apiResource('busies', BusyController::class);
+Route::apiResource('syncs', SyncController::class);
 
 
 
