@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\VeterinarianController;
+use App\Http\Controllers\Api\ScheduleController;
 
 
 /*
@@ -21,5 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('veterinarians', VeterinarianController::class);
+Route::apiResource('schedules', ScheduleController::class);
+
 
 

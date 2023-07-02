@@ -18,15 +18,10 @@
                     <table class="min-w-full divide-y divide-gray-200 border">
                         <thead class="sticky top-0">
                             <tr>
-                                <th class="px-6 py-3 bg-gray-50 text-right">
-                                    <input v-model="search_id" type="text"
+                                <th class="px-6 py-3 bg-gray-50 text-right"></th>
+                                <th class="px-6 py-3 bg-gray-50 text-left">  <input v-model="search_id" type="text"
                                         class="mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                                        placeholder="Search by Employee ID or Name">
-                                </th>
-                                <th class="px-6 py-3 bg-gray-50 text-left"></th>
-                                <th class="px-6 py-3 bg-gray-50 text-left"></th>
-                                <th class="px-6 py-3 bg-gray-50 text-left"></th>
-                                <th class="px-6 py-3 bg-gray-50 text-left"></th>
+                                        placeholder="Search by Employee ID or Name"></th>
                             </tr>
                             <tr>
                                 <th class="px-6 py-3 bg-gray-50 text-left">
