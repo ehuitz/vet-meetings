@@ -7,6 +7,7 @@ use App\Http\Requests\StoreSyncRequest;
 use App\Http\Requests\UpdateSyncRequest;
 use App\Models\Sync;
 use App\Http\Resources\SyncResource;
+use Illuminate\Support\Facades\Storage;
 
 class SyncController extends Controller
 {
@@ -45,7 +46,22 @@ class SyncController extends Controller
      */
     public function store(StoreSyncRequest $request)
     {
-        //
+        $file = $request->file('file');
+        $file_name = time().'_'. $file->getClientOriginalName();
+        $origin = $request->input('origin');
+
+        $path = $file->store('public/files');
+        $fileUrl = Storage::url($path);
+
+        $sync = Sync::create([
+            'origin' => $origin,
+            'path' => $path,
+            'name' => $file_name,
+            'status' => 'active'
+        ]);
+
+        $query = Sync::query();
+        return SyncResource::collection($query->paginate(10));
     }
 
     /**

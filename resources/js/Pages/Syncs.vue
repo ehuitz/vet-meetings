@@ -9,11 +9,57 @@
         <div class="py-12">
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                    <div class="p-6 text-gray-900">This is the Syncs!</div>
-
                     <div v-if="isLoading">
                         Loading...
                     </div>
+
+                    <form @submit.prevent="submitForm" class="w-5/6 ml-auto mr-5 mb-5">
+                        <div class="p-6 text-gray-900">Upload a Manual</div>
+
+                        <!-- Origin -->
+                        <div>
+                            <label for="sync-origin" class="block font-medium text-sm text-gray-700">
+                                Origin
+                            </label>
+                            <select v-model="sync.origin" id="sync-origin" class="inline-block mt-1 w-full rounded-md
+                            shadow-sm border-gray-300 focus:border-indigo-300 focus:ring
+                            focus:ring-indigo-200 focus:ring-opacity-50">
+                                <option value="manual" selected>Manual</option>
+                            </select>
+                            <div class="text-red-600 mt-1">
+                                {{ errors.origin }}
+                            </div>
+                            <div class="text-red-600 mt-1">
+                                <div v-for="message in validationErrors?.origin">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- File -->
+                        <div class="mt-4">
+                            <label for="file" class="block font-medium text-sm text-gray-700">
+                                Upload Busy File
+                            </label>
+                            <input @change="sync.file = $event.target.files[0]" type="file" id="file" />
+                            <div class="text-red-600 mt-1">
+                                <div v-for="message in validationErrors?.file">
+                                    {{ message }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="mt-4">
+                            <button :disabled="isLoading"
+                                class="inline-flex items-center px-3 py-2 bg-blue-600 text-white rounded disabled:opacity-75 disabled:cursor-not-allowed">
+                                <div v-show="isLoading"
+                                    class="inline-block animate-spin w-4 h-4 mr-2 border-t-2 border-t-white border-r-2 border-r-white border-b-2 border-b-white border-l-2 border-l-blue-600 rounded-full">
+                                </div>
+                                <span v-if="isLoading">Processing...</span>
+                                <span v-else>Save</span>
+                            </button>
+                        </div>
+                    </form>
 
                     <table class="min-w-full divide-y divide-gray-200 border">
                         <thead class="sticky top-0">
@@ -64,7 +110,7 @@
                                     {{ sync.origin }}
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
-                                    {{ sync.path }}
+                                    <a href="#" @click="openFile(sync.path)">{{ sync.path }}</a>
                                 </td>
                                 <td class="px-6 py-4 whitespace-no-wrap text-sm leading-5 text-gray-900">
                                     {{ sync.status }}
@@ -84,8 +130,13 @@
 <script>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, reactive } from 'vue';
+import { useForm, useField, defineRule } from "vee-validate";
+import { required, min } from "../Validation/rules"
 import useSyncs from '../Composables/syncs';
+
+defineRule('required', required)
+defineRule('min', min);
 
 export default {
     components: {
@@ -93,7 +144,7 @@ export default {
         Head,
     },
     setup() {
-        const { syncs, getSyncs } = useSyncs();
+        const { syncs, getSyncs, storeSync, validationErrors } = useSyncs();
         const isLoading = ref(true)
         const orderColumn = ref('created_at')
         const orderDirection = ref('desc')
@@ -113,13 +164,45 @@ export default {
             );
         }
 
+        const schema =
+        {
+            origin: 'required|min:3',
+        }
+
+        // Create a form context with the validation schema
+        const { validate, errors } = useForm({ validationSchema: schema })
+
+        // Define actual fields for validation
+        const { value: status } = useField('status', null, { initialValue: '' });
+        const { value: origin } = useField('origin', null, { initialValue: '' });
+
+        const sync = reactive({
+            status,
+            origin,
+            file: ''
+        })
+
+        function submitForm() {
+            validate().then(form => { if (form.valid) storeSync(sync) })
+        }
+
+        function openFile(path) {
+            const url = path;
+            window.open(url, '_blank');
+        }
+
         return {
+            sync,
             syncs,
             isLoading,
             updateOrdering,
             orderColumn,
             orderDirection,
             updateOrdering,
+            submitForm,
+            errors,
+            validationErrors,
+            openFile
         };
     },
 };

@@ -4,6 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class SyncResource extends JsonResource
 {
@@ -19,7 +20,7 @@ class SyncResource extends JsonResource
             'status' => $this->status,
             'origin' => $this->origin,
             'name' => $this->name,
-            'path' => $this->path,
+            'path' => Storage::url($this->path),
             'created_at' => date("Y-m-d H:i:s", strtotime($this->created_at)),
         ];
     }
