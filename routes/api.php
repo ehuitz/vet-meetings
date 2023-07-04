@@ -6,6 +6,7 @@ use App\Http\Controllers\Api\VeterinarianController;
 use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\Api\BusyController;
 use App\Http\Controllers\Api\SyncController;
+use App\Http\Controllers\Api\FreeController;
 
 
 /*
@@ -27,6 +28,8 @@ Route::apiResource('veterinarians', VeterinarianController::class);
 Route::apiResource('schedules', ScheduleController::class);
 Route::apiResource('busies', BusyController::class);
 Route::apiResource('syncs', SyncController::class);
+Route::apiResource('frees', FreeController::class);
+
 
 
 
