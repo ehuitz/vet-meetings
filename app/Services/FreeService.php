@@ -36,7 +36,7 @@ class FreeService
         }
 
         return $availableSlots->map(function ($slot) {
-            return $slot['start'] . ' - ' . $slot['end'] . ' ' . $slot['veterinarian_name'];
+            return $slot['start']->format('Y-m-d H:i') . ' - ' . $slot['end']->format('H:i') . ' ' . $slot['veterinarian_name'];
         });
     }
 
