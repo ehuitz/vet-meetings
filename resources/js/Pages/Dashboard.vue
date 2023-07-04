@@ -14,7 +14,7 @@
                     </div>
 
                     <form @submit.prevent="submitForm" class="w-5/6 ml-auto mr-5 mb-5">
-                        <div class="p-6 text-gray-900">Search for Free</div>
+                        <div class="p-6 text-gray-900">Search for Free Slots</div>
 
                         <!-- Date -->
                         <div>
@@ -36,9 +36,9 @@
                         <!-- Interval -->
                         <div>
                             <label for="free-interval" class="block font-medium text-sm text-gray-700">
-                                interval
+                                Interval in minutes
                             </label>
-                            <input v-model="free.interval" type="string"
+                            <input v-model="free.interval" type="number"
                                 class="mt-1 w-full rounded-md shadow-sm border-gray-300 focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                                 placeholder="Enter interval in minutes" id="free-interval">
                             <div class="text-red-600 mt-1">
@@ -114,15 +114,16 @@ export default {
 
         const schema =
         {
-            date: 'required|min:3',
+            date: 'required',
+            interval: 'required',
         }
 
         // Create a form context with the validation schema
         const { validate, errors } = useForm({ validationSchema: schema })
 
         // Define actual fields for validation
-        const { value: date } = useField('date', null, { initialValue: '' });
-        const { value: interval } = useField('interval', null, { initialValue: '' });
+        const { value: date } = useField('date', null, { initialValue: '2020-04-29' });
+        const { value: interval } = useField('interval', null, { initialValue: '15' });
 
         const free = reactive({
             date,
